@@ -1,0 +1,102 @@
+@import '../../index.scss';
+
+.container {
+  background-color: $veryLightGrey;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar {
+  background-color: $white;
+  height: 6rem;
+  width: 100%;
+  top: 0;
+  position: absolute;
+}
+
+.side-bar {
+  height: 100vh;
+  width: 23rem;
+  background-color: $white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  height: 7rem;
+  // background-color: black;
+  display: flex;
+  flex-direction: row;
+  padding-left: 5rem;
+  align-items: center;
+}
+
+.home {
+  display: flex;
+  padding-left: 5rem;
+  height: 5rem;
+  align-items: center;
+  background-color: $veryLightGrey;
+  color: $subText;
+}
+
+h3 {
+  color: #666666;
+}
+
+.dashboard {
+  padding-left: 5rem;
+  padding-top: 1rem;
+}
+
+.home-icon {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 2rem;
+}
+
+.user-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: red;
+  margin-right: 10px;
+}
+.side-bar-header {
+  background-color: $red;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  color: $white;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+  color: $subText;
+  cursor: pointer;
+}
+
+.item-image {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 30px;
+  height: 30px;
+  width: 30px;
+}
+
+.main {
+  display: 'flex';
+  height: 100vh;
+  justify-content: center;
+  padding-left: 25rem;
+  padding-top: 6rem;
+}

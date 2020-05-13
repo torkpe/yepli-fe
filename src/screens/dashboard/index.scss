@@ -1,0 +1,81 @@
+@import '../../index.scss';
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.big-card {
+  display: flex;
+  flex-direction: row;
+  height: 15rem;
+  width: 50rem;
+  background-color: $white;
+  margin-top: 2rem;
+  border-radius: 50px;
+  padding-left: 50px;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  width: 53rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.small-card-img {
+  height: 20rem;
+  width: 20rem;
+}
+
+.small-card {
+  display: flex;
+  flex-direction: row;
+  width: 24rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+  height: 10rem;
+  padding: 10px;
+  background-color: $white;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.small-card-left-side {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  color: $subText;
+}
+
+.image-container {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 10rem;
+  background-color: grey;
+}
+
+button {
+  width: 5rem;
+  align-self: flex-end;
+  margin-top: 1rem;
+  background-color: $white;
+  border: 1px $white solid;
+  outline: none;
+  color: $red;
+  font-weight: bold;
+}
+
+.text {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35rem;
+  color: $subText;
+}
+
+.user-details {
+  margin-left: 20px;
+}

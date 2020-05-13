@@ -1,0 +1,7 @@
+<svg id="_021" data-name="#021" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <rect id="矩形" width="40" height="40" fill="none"/>
+  <path id="路径" d="M0,17.04,1.7,9.372C2.982,4.686,5.163,0,10.224,0s7.242,4.686,8.52,9.372l3.408,12.78" transform="translate(10.224 9.09)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+  <path id="路径-2" data-name="路径" d="M5.112.5H0" transform="translate(17.892 3.478)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+  <path id="路径-3" data-name="路径" d="M18.744.5H0" transform="translate(13.632 30.742)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+  <ellipse id="椭圆形" cx="1.5" cy="2" rx="1.5" ry="2" transform="translate(19 34)" fill="#00e88b"/>
+</svg>

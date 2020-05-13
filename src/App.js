@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  BrowserRouter as Router,
+  // Switch,
+  Route
+} from 'react-router-dom';
+
+import configureStore from './store';
+
+import Auth from './screens/auth/Auth';
+import Main from './components/Main';
+import Dashboard from './screens/dashboard/Dashboard';
+
+const store = configureStore();
+
+
+class App extends React.Component {
+  state = {
+    isAuthenticated: false
+  }
+  render() {
+    const { isAuthenticated } = this.props;
+    console.log(isAuthenticated)
+    return (
+      <Router>
+        {/* <Provider store={store}> */}
+        {
+          !isAuthenticated ? 
+            <React.Fragment>
+              <Route path='/' component={Auth}/>
+              <Route path='/signin' component={Auth}/>
+            </React.Fragment>
+          :
+              <Main>
+                <Route path='/' component={Dashboard}/>
+              </Main>
+        }
+        {/* </Provider> */}
+      </Router>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+}
+export default connect(mapStateToProps)(App)
