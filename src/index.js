@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { connect } from 'react-redux';
 
 import configureStore from './store';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import setAuthToken from './utils/interceptor';
+import { setCurrentUser } from './actions/auth/actionCreators';
 
 const store = configureStore();
+
+const jwt = localStorage.getItem('jwt');
+
+if (jwt) {
+  setAuthToken(jwt);
+  store.dispatch(setCurrentUser(jwt));
+}
 
 ReactDOM.render(
   <React.StrictMode>

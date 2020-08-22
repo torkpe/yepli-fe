@@ -9,13 +9,18 @@ import './Auth.scss';
 
 import { AuthForm } from '../../components/forms/Authform';
 import { ENUMS } from '../../components/helpers/constants';
-import { signin } from '../../actions/actionCreators';
+import { signin, signup } from '../../actions/auth/actionCreators';
+import { validateEmail } from '../../utils/helpers';
 
 class Auth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      screen: 'signup'
+      screen: 'signup',
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
     }
   }
 
@@ -23,6 +28,57 @@ class Auth extends React.Component {
     this.setState({
       screen
     });
+  }
+
+  submit = () => {
+    const { screen, firstName, lastName, email, password } = this.state;
+    const requiredFields = [];
+    const body = {
+      firstName, lastName, email, password
+    }
+
+    if (screen === ENUMS.signup) {
+      if (firstName.length < 2) {
+        requiredFields.push('firstName');
+      }
+      if (lastName.length < 2) {
+        requiredFields.push('lastName');
+      }
+    }
+
+    if (!validateEmail(email)) {
+      requiredFields.push('email');
+    }
+    if (password.length < 5) {
+      requiredFields.push('password');
+    }
+
+
+    if (requiredFields.length) {
+      console.log('could not go through')
+      return this.setState({
+        requiredFields
+      });
+    }
+
+    if (screen === ENUMS.signin) {
+      delete body.firstName;
+      delete body.lastName;
+      this.props.signin(body)
+    }
+
+    if (screen === ENUMS.signup) {
+      this.props.signup(body)
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+  }
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
   render() {
     const { screen } = this.state;
@@ -46,8 +102,13 @@ class Auth extends React.Component {
               : 'Welcome back. Please login to continue.'
             }
           </h4>
+          {
+            this.props.message ?
+            <div className={this.props.success ? 'auth-success' : 'auth-failure'}>{this.props.message}</div> : ''
+          }
           <AuthForm
-            submit={this.props.signin}
+            submit={this.submit}
+            onChange={this.onChange}
             page={screen}
           />
           <div className='links'>
@@ -62,11 +123,17 @@ class Auth extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-});
-
+const mapStateToProps = (state) => {
+  console.log(state.auth)
+  return ({
+    message: state.auth.message,
+    isLoading: state.auth.isLoading,
+    success: state.auth.success,
+  });
+}
 const mapDispatchToProps = {
   signin,
+  signup
 }
 
 export default connect(

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 
 import {
@@ -8,14 +7,10 @@ import {
   Route
 } from 'react-router-dom';
 
-import configureStore from './store';
-
 import Auth from './screens/auth/Auth';
 import Main from './components/Main';
 import Dashboard from './screens/dashboard/Dashboard';
-
-const store = configureStore();
-
+import VerifyEmail from './screens/auth/VerifyEmail';
 
 class App extends React.Component {
   state = {
@@ -30,11 +25,11 @@ class App extends React.Component {
         {
           !isAuthenticated ? 
             <React.Fragment>
-              <Route path='/' component={Auth}/>
-              <Route path='/signin' component={Auth}/>
+              <Route path='/' exact component={Auth}/>
+              <Route path='/verify-email' component={VerifyEmail}/>
             </React.Fragment>
           :
-              <Main>
+              <Main props={this.props}>
                 <Route path='/' component={Dashboard}/>
               </Main>
         }

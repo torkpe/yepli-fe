@@ -5,6 +5,10 @@
   height: 100vh;
 }
 
+.auth-container__verify-email {
+  justify-content: center;
+  align-items: center;
+}
 .form {
   margin-top: 1rem;
   margin-bottom: 3rem;
@@ -22,6 +26,14 @@
   width: 104rem;
   display: flex;
   padding: 1rem;
+}
+
+.auth-success {
+  color: green;
+}
+
+.auth-failure {
+  color: red;
 }
 
 .greetings {

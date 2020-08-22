@@ -14,5 +14,12 @@ export const icons = {
 
 export const ENUMS = {
   signup: 'signup',
-  signin: 'signin'
+  signin: 'signin',
+}
+
+export const INPUT_TYPES = {
+  text: 'text',
+  email: 'email',
+  password: 'password',
+  number: 'number',
 }

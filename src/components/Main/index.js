@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './index.scss'
 import home from '../../assets/svg/home.png'
 import TaskIcon from '../../assets/svg/my-task.svg';
@@ -6,9 +8,13 @@ import Contact from '../../assets/svg/contact.svg';
 import MyDeals from '../../assets/svg/My-deals.svg';
 import Settings from '../../assets/svg/Settings.svg';
 import DashboardItem from './DashboardItem';
+import { signout } from '../../actions/auth/actionCreators';
+import { convertFirstLetterToUppercase } from '../../utils/helpers';
 
-
-export default function Main(props) {
+export function Main(props) {
+  const signoutUser = () => {
+    props.signout();
+  }
   return (
     <div className='container'>
       <div className="nav-bar">
@@ -23,7 +29,7 @@ export default function Main(props) {
         <div className="user-name">
           <div className="user-image">
           </div>
-          <h3>User name</h3>
+          <h3>{convertFirstLetterToUppercase(props.user.firstName)} {convertFirstLetterToUppercase(props.user.lastName)}</h3>
         </div>
         <div className="home">
           <img src={home} className="home-icon" alt='logo'/>
@@ -52,6 +58,14 @@ export default function Main(props) {
             />
           </div>
         </div>
+        <div className="logout-section">
+          <button
+            onClick={signoutUser}
+            className="logout-button item">
+            <img src={require('../../assets/svg/Logout.svg')} className="item-image item-image__logout " alt="img"/>
+              Log Out
+          </button>
+        </div>
       </div>
       <div className="main">
         {props.children}
@@ -59,3 +73,17 @@ export default function Main(props) {
     </div>
   )
 } 
+
+const mapStateToProps = (state) => {
+  return({
+    user: state.auth.user,
+  });
+}
+const mapDispatchToProps = {
+  signout
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);

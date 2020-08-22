@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import { auth } from './auth';
+import { auth, verifyEmail } from './auth';
 
 export default combineReducers({
   auth,
+  verifyEmail
 });

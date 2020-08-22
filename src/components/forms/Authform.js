@@ -1,32 +1,46 @@
 import React from 'react';
 import TextInput from '../inputs/TextInput';
 
-import { icons } from '../helpers/constants';
+import { icons, INPUT_TYPES } from '../helpers/constants';
 import Button from '../inputs/Button';
 
 export class AuthForm extends React.Component {
-  click = () => {
-    console.log('hhsjhjsh jhbhj', this.props)
-
-  }
   render() {
-    console.log(this.props)
     return (
       <div className='form'>
         {
           this.props.page !== 'signin' ?
-            <TextInput
-            placeholder='First name Last name'
-            icon={icons.user}
-            /> : ''
+            <React.Fragment>
+              <TextInput
+                onChange={this.props.onChange}
+                placeholder='First name'
+                icon={icons.user}
+                type={INPUT_TYPES.text}
+                name={'firstName'}
+              />
+              <TextInput
+                onChange={this.props.onChange}
+                placeholder='Last name'
+                icon={icons.user}
+                type={INPUT_TYPES.text}
+                name={'lastName'}
+              />
+            </React.Fragment>
+            : ''
         }
         <TextInput
           placeholder='Email'
           icon={icons.mail}
+          name={'email'}
+          type={INPUT_TYPES.email}
+          onChange={this.props.onChange}
         />
         <TextInput
           placeholder='Password'
           icon={icons.lock}
+          type={INPUT_TYPES.password}
+          name={'password'}
+          onChange={this.props.onChange}
         />
         <Button
           onClick={this.props.submit}
