@@ -15,7 +15,7 @@ export default function DashboardCard(props) {
         <div>
           {props.description}
         </div>
-        <button>
+        <button onClick={() => props.onClick(props.title)}>
           {props.buttonText}
         </button>
       </div>

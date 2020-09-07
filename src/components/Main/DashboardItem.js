@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function DashboardItem(props) {
   return (
-    <div className="item">
+    <Link to={'/'+ props.to} className="item">
       <img src={props.icon} className="item-image" alt="img"/>
       {props.title}
-    </div>
+    </Link>
   )
 }

@@ -21,7 +21,17 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  @include sm {
+    width: 100%;
+    height: 7rem;
+  }
 }
+
+// @include breakpoint(320px 600px) {
+//   .side-bar {
+//     width: 100%;
+//   }
+// }
 
 .logout-section {
   padding-left: 5rem;
@@ -31,6 +41,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include sm {
+    display: none;
+  }
 }
 
 .logout-button {
@@ -40,6 +53,26 @@
   width: 10rem;
 }
 
+.menu {
+  justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  @include sm {
+    justify-content: center;
+    width: inherit;
+    padding-top: 10px;
+    margin-right: 10px;
+  }
+}
+
+.menu-icon {
+  height: 3rem;
+  cursor: pointer;
+  @include sm {
+    height: 2rem;
+  }
+}
+
 .user-name {
   height: 7rem;
   // background-color: black;
@@ -47,9 +80,28 @@
   flex-direction: row;
   padding-left: 5rem;
   align-items: center;
+  @include sm {
+    display: none;
+  }
 }
 
 .home {
+  display: flex;
+  padding-left: 5rem;
+  height: 5rem;
+  align-items: center;
+
+  color: $subText;
+  @include sm {
+    display: none;
+  }
+}
+
+.active-tab {
+  background-color: $veryLightGrey;
+}
+
+.home-sidebar {
   display: flex;
   padding-left: 5rem;
   height: 5rem;
@@ -58,6 +110,25 @@
   color: $subText;
 }
 
+.dashboard-sidebar {
+  padding-left: 5rem;
+  padding-top: 1rem;
+}
+
+.logout-section-sidebar {
+  padding-left: 5rem;
+  position: fixed;
+  bottom: 0;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-logout {
+  background-color: $veryLightGrey;
+  border-color: $veryLightGrey;
+}
 h3 {
   color: #666666;
 }
@@ -65,6 +136,9 @@ h3 {
 .dashboard {
   padding-left: 5rem;
   padding-top: 1rem;
+  @include sm {
+   display: none;
+  }
 }
 
 .home-icon {
@@ -86,10 +160,24 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  @include sm {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 .logo {
   color: $white;
+  margin-top: 0;
+  @include sm {
+    margin-bottom: 0;
+  }
 }
 
 .item {
@@ -99,6 +187,36 @@ h3 {
   margin-bottom: 30px;
   color: $subText;
   cursor: pointer;
+}
+
+.sidenav {
+  display: none;
+  @include sm {
+    display: block;
+    height: 100%;
+    width: 20rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $veryLightGrey;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.hidden-sidenav {
+  display: none;
 }
 
 .item-image {
@@ -119,4 +237,11 @@ h3 {
   height: 100vh;
   justify-content: center;
   padding-left: 25rem;
+  @include sm {
+    flex-direction: column;
+    padding-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   }
 }

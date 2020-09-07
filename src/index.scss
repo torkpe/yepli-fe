@@ -1,4 +1,6 @@
-$veryLightGrey: #fcfcfc;
+$veryLightGrey: #f8f8f8;
+$grey: #ece9e9;
+$averageGrey: #bdbcbc;
 $subText: #AFAFAF;
 $white: #ffffff;
 $red: #DA0101;
@@ -6,4 +8,43 @@ $darkGrey: #666666;
 // $grey: 
 h1, h4, h3 {
   color: $darkGrey;
+}
+
+$screen-sm-min: 300px;
+$screen-sm-max: 500px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
 }

@@ -11,14 +11,18 @@ import Auth from './screens/auth/Auth';
 import Main from './components/Main';
 import Dashboard from './screens/dashboard/Dashboard';
 import VerifyEmail from './screens/auth/VerifyEmail';
+import Deals from './screens/deal/Index';
 
 class App extends React.Component {
   state = {
     isAuthenticated: false
   }
+
+  navigate = () => {
+    this.props.history.push()
+  }
   render() {
     const { isAuthenticated } = this.props;
-    console.log(isAuthenticated)
     return (
       <Router>
         {/* <Provider store={store}> */}
@@ -30,7 +34,11 @@ class App extends React.Component {
             </React.Fragment>
           :
               <Main props={this.props}>
-                <Route path='/' component={Dashboard}/>
+                <React.Fragment>
+                  {/* <Route exact path='/' component={Main}/> */}
+                  <Route exact path='/' component={Dashboard}/>
+                  <Route path='/deals' component={Deals}/>
+                </React.Fragment>
               </Main>
         }
         {/* </Provider> */}

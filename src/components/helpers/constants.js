@@ -3,7 +3,9 @@ import mail from '../../assets/svg/mail.svg';
 import lock from '../../assets/svg/lock.svg';
 
 export const classes = {
-  auth: 'auth-button'
+  auth: 'auth-button',
+  cancel: 'cancel-button',
+  modal: 'modal-button'
 }
 
 export const icons = {
