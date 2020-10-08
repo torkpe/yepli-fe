@@ -42,7 +42,9 @@ export default class Modal extends React.Component {
             {
               hideCreateButton ?
               '' :
-              <button className="modal-button">
+              <button
+                onClick={this.props.submit}
+                className="modal-button">
                 CREATE
               </button>
             }

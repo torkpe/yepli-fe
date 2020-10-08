@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import './index.scss'
 import home from '../../assets/svg/home.png'
@@ -19,6 +19,7 @@ export class Main extends React.Component {
   }
   signoutUser = () => {
     this.props.signout();
+    this.props.history.push('');
   }
 
   toggleSideNav = () => {
@@ -31,10 +32,12 @@ export class Main extends React.Component {
     const { openSidenav } = this.state;
     return (
       <div className='container'>
-        
+        <div className="nav-bar">
+
+        </div>
         <div className={openSidenav ? "sidenav" : "hidden-sidenav"}>
           <div className="closebtn" onClick={this.toggleSideNav}>&times;</div>
-          <Link to={'/'}className="home-sidebar">
+          <Link onClick={this.toggleSideNav} to={'/'}className="home-sidebar">
             <img src={home} className="home-icon" alt='logo'/>
             Home
           </Link>
@@ -42,19 +45,23 @@ export class Main extends React.Component {
             <div className="items-sidebar">
               <DashboardItem
                 title="My Task"
+                toggleSideNav={this.toggleSideNav}
                 icon={TaskIcon}
               />
               <DashboardItem
                 title="Contacts"
+                toggleSideNav={this.toggleSideNav}
                 icon={Contact}
               />
               <DashboardItem
                 title="My Deals"
+                toggleSideNav={this.toggleSideNav}
                 icon={MyDeals}
                 to={'Deals'}
               />
               <DashboardItem
                 title="Settings"
+                toggleSideNav={this.toggleSideNav}
                 icon={Settings}
               />
             </div>
@@ -137,4 +144,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Main);
+)(withRouter(Main));

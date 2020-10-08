@@ -65,7 +65,7 @@ export class Dashboard extends React.Component {
               buttonText="Add Task +"
             />
             <DashboardCard
-              title="Deals"
+              title="Templates"
               icon={Templates}
               onClick={this.onClickAdd}
               description="Create new templates."
@@ -76,6 +76,7 @@ export class Dashboard extends React.Component {
         <NewDeal
           displayModal={this.state.currentDisplay === 'Deals'}
           closeModal={this.closeModal}
+          props={this.props}
         />
       </React.Fragment>
     )

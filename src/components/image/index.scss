@@ -1,0 +1,9 @@
+@import '../../index.scss';
+
+.user-photo {
+  height: 44px;
+  width: 44px;
+  background-color: $darkGrey;
+  border-radius: 22px;
+  align-self: center;
+}

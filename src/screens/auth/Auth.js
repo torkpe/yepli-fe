@@ -131,6 +131,7 @@ const mapStateToProps = (state) => {
     success: state.auth.success,
   });
 }
+
 const mapDispatchToProps = {
   signin,
   signup

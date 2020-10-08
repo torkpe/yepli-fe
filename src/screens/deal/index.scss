@@ -1,0 +1,317 @@
+@import '../../index.scss';
+
+.deals {
+  height: 100%;
+  width: 100%;
+  // padding-left: 20px;
+  // padding-right: 20px;
+  overflow-y: scroll;
+  @include sm {
+    padding-top: 100px;
+  }
+}
+
+.deal-overview {
+  height: 100%;
+  background-color: $white;
+  border-radius: 20px;
+  width: 60%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  @include sm {
+    width: 90%;
+    padding-top: 50%;
+    justify-content: center;
+  }
+}
+
+.deal-overview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-y: scroll;
+  @include sm {
+    justify-content: center;
+  }
+}
+.title {
+  color: #2A2B2D;
+  margin-bottom: 5px;
+}
+
+.deal-header {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right-header {
+  display: flex;
+}
+
+.add-image {
+  height: 27px;
+  width: 30px;
+}
+
+.left-header {
+  display: flex;
+}
+
+.created-date {
+  color: $averageGrey;
+  font-size: 12px;
+}
+
+.overview-section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.items-header {
+  height: 56px;
+  width: 100%;
+  background-color: $grey;
+  text-transform: uppercase;
+  display: flex;
+}
+
+.upload-image {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.items {
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-upload>input {
+  display: none;
+}
+
+.items__other-items {
+  &.items {
+    margin-bottom: 50px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+.header-text {
+  padding-left: 20px;
+}
+.overview-description {
+  color: $averageGrey;
+  padding-top: 20px;
+  display: flex;
+  width: 100%;
+  font-size: 13px;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  // padding-right: 20px;
+  // padding-left: 20px;
+  border-bottom: 1px solid $grey;
+}
+.overview-left {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.overview-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.edit-button {
+  margin: 0;
+  width: 3rem;
+}
+.overview-button {
+  background-color: $white;
+  border-color: $white;
+  text-transform: uppercase;
+  color: $darkGrey;
+  display: flex;
+  width: 9rem;
+  justify-content: center;
+  margin-top: 0;
+  align-items: center;
+}
+.right-side-overview {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  margin-left: 20px;
+}
+.overview-image-placeholder {
+  width: 95%;
+  height: 300px;
+  align-self: center;
+  border-radius: 30px;
+  background-color: $darkGrey;
+}
+
+.overview-image {
+  max-height: 100%;
+}
+
+.overview-image-container {
+  width: 100%;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+}
+.plus-image {
+  font-weight: bolder;
+  color: $red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+.deal-progress {
+  width: 140px;
+  padding-top: 5px;
+}
+.small-card-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.amount {
+  margin-top: 0;
+}
+
+.created-by {
+  color: $averageGrey
+}
+
+.details-content {
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.small-card {
+  &.small-card__deals {
+    height: 122px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+}
+
+
+.percentage {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.small-card-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.deals-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // height: 100%;
+  @include sm {
+    justify-content: center;
+    overflow-y: scroll;
+  }
+}
+
+.header {
+  color: $averageGrey;
+  height: 150px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid $grey;
+  padding-top: 6rem;
+  @include sm {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 0;
+  }
+}
+
+.deal-action-buttons {
+  display: flex;
+}
+
+.add-item-button {
+  background-color: $pink;
+  &.button{ 
+    height: 44px;
+    width: 178px;
+    color: $red;
+    align-self: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    align-self: center;
+    border-radius: 10px;
+  }
+}
+
+.deal-button {
+  height: 38px;
+  width: 148px;
+  background-color: #1087EF;
+  margin-right: 20px;
+  color: $white;
+  border-radius: 10px;
+}
+
+.join-deal {
+  background-color: #16CB64;
+}
+
+.carret {
+  margin-left: 10px;
+}
+
+.small-card-img {
+  height: 90px;
+  width: 90px;
+  border-radius: 45px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.deal-title {
+  color: $blue;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.deal-title__overiview {
+  margin-bottom: 0;
+  margin-top: 0;
+}

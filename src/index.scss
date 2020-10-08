@@ -1,8 +1,10 @@
 $veryLightGrey: #f8f8f8;
 $grey: #ece9e9;
-$averageGrey: #bdbcbc;
+$blue: #388DD6;
+$averageGrey: #707070;
 $subText: #AFAFAF;
 $white: #ffffff;
+$pink: #FFE9E9;
 $red: #DA0101;
 $darkGrey: #666666;
 // $grey: 
@@ -46,5 +48,23 @@ $screen-xl-min: 1200px;
 @mixin xl {
   @media (min-width: #{$screen-xl-min}) {
       @content;
+  }
+}
+
+.small-card {
+  display: flex;
+  flex-direction: row;
+  width: 24rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+  height: 10rem;
+  padding: 10px;
+  background-color: $white;
+  border-radius: 20px;
+  align-items: center;
+  @include sm {
+    margin-right: 0;
+    width: 21rem;
+    margin-bottom: 2rem;
   }
 }

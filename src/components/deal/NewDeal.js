@@ -5,15 +5,22 @@ import ModalTextInput from '../inputs/ModalTextInput';
 import './index.scss';
 import CustomCalendar from '../calendar/Calendar';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import { createDeal } from '../../actions/deals/actionCreators';
+import { formatNumber } from '../../utils/helpers';
 
-export default class NewDeal extends React.Component {
+export class NewDeal extends React.Component {
   state = {
     currentDisplay: 'tab1',
     value: '',
+    name: '',
+    type: '',
     displayCalendar: false,
-    startDate: moment().format('MM/DD/YYYY')
+    closingDate: moment().format('MM/DD/YYYY')
   }
 
+  componentDidMount() {
+  }
   toggleDisplay = (display) => {
     this.setState({
       currentDisplay: display
@@ -40,21 +47,20 @@ export default class NewDeal extends React.Component {
       displayCalendar: !this.state.displayCalendar
     })
   }
-  formatNumber = (num) => {
-    return ('' + num).replace(
-      /(\d)(?=(?:\d{3})+(?:\.|$))|(\.\d\d?)\d*$/g, 
-      function(m, s1, s2){
-        return s2 || (s1 + ',');
-      }
-    );
-  }
 
-  onDateChange = (startDate) => {
-    console.log(startDate)
+  onDateChange = (closingDate) => {
+    console.log(closingDate)
     this.setState({
-      startDate: moment(startDate).format('MM/DD/YYYY')
+      closingDate: moment(closingDate).format('MM/DD/YYYY')
     });
     this.toggleCalendar()
+  }
+
+  createDeal = () => {
+    const { name, type, value, closingDate } = this.state;
+    this.props.createDeal({
+      name, type, value: value.replace(/,/g, ''), closingDate
+    }, this.props.props)
   }
   render () {
     return (
@@ -65,6 +71,7 @@ export default class NewDeal extends React.Component {
         currentDisplay={this.state.currentDisplay}
         tab1={'Basic Information'}
         toggleDisplay={this.toggleDisplay}
+        submit={this.createDeal}
         tab2={'Additional Information'}
         showModal={this.props.displayModal}>
           <div className="new-deal">
@@ -77,7 +84,7 @@ export default class NewDeal extends React.Component {
               <ModalTextInput
                 title={'Deal value($)*'}
                 onChange={this.onChange}
-                value={this.formatNumber(this.state.value.replace(/,/g, ''))}
+                value={formatNumber(this.state.value.replace(/,/g, ''))}
                 name={'value'}
               />
               <ModalTextInput
@@ -86,10 +93,10 @@ export default class NewDeal extends React.Component {
                 name={'type'}
               />
               <CustomCalendar
-                title={'Start Date'}
+                title={'Closing Date'}
                 onClick={this.toggleCalendar}
                 onChange={this.onDateChange}
-                value={this.state.startDate}
+                value={this.state.closingDate}
                 showModal={this.state.displayCalendar}
               />
             </div>
@@ -98,3 +105,16 @@ export default class NewDeal extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = {
+  createDeal,
+}
+
+const mapStateToProps = (state) => {
+  console.log(state.auth)
+  return ({});
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewDeal);

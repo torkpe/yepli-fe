@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   // Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 
 import Auth from './screens/auth/Auth';
 import Main from './components/Main';
 import Dashboard from './screens/dashboard/Dashboard';
 import VerifyEmail from './screens/auth/VerifyEmail';
-import Deals from './screens/deal/Index';
+import Deals from './screens/deal/Deals';
+import Deal from './screens/deal/Deal';
 
 class App extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class App extends React.Component {
   }
 
   navigate = () => {
-    this.props.history.push()
+    this.props.history.push();
   }
   render() {
     const { isAuthenticated } = this.props;
@@ -37,7 +38,8 @@ class App extends React.Component {
                 <React.Fragment>
                   {/* <Route exact path='/' component={Main}/> */}
                   <Route exact path='/' component={Dashboard}/>
-                  <Route path='/deals' component={Deals}/>
+                  <Route exact path='/deals' component={Deals}/>
+                  <Route path='/deals/:dealId' component={Deal}/>
                 </React.Fragment>
               </Main>
         }

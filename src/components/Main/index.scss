@@ -237,6 +237,7 @@ h3 {
   height: 100vh;
   justify-content: center;
   padding-left: 25rem;
+  overflow-y: hidden;
   @include sm {
     flex-direction: column;
     padding-left: 0;

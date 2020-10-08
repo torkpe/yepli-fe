@@ -13,6 +13,7 @@ import {
   SIGN_UP_FAILED,
 } from "./actions";
 import { getBaseUrl } from "../../utils/env";
+import setAuthToken from "../../utils/interceptor";
 
 const baseUrl = `${getBaseUrl()}/auth`;
 
@@ -26,6 +27,7 @@ export const signin = (payload) => async (dispatch) => {
       type: SIGN_IN_SUCCESSFUL,
       payload: response.data.message
     });
+    setAuthToken(response.data.token)
     return dispatch({
       type: SET_CURRENT_USER,
       payload: response.data
