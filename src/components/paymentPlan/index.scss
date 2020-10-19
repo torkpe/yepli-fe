@@ -1,0 +1,27 @@
+@import '../../index.scss';
+
+
+.payment-plan {
+  border: 1px solid $thinGrey;
+  height: 350px;
+  width: 220px;
+  display: flex;
+  border-radius: 20px;
+  box-shadow:  0 1.4px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 3.8px 3.4px rgba(0, 0, 0, 0.086),
+  0 5px 5px rgba(0, 0, 0, 0.12);
+  flex-direction: column;
+  padding: 30px;
+}
+
+.plan-items {
+  height: 294px;
+}
+
+.payment-plan-amount {
+  font-size: 44px;
+  font-weight: bolder;
+}

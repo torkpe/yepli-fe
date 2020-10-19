@@ -1,0 +1,55 @@
+@import '../../index.scss';
+
+
+.colored-button {
+  &.custom-style {
+    width: 17rem;
+    height: 54px;
+    border-radius: 30px;
+  }
+}
+
+.profile-forms {
+  height: 100%;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom__modal-input-container {
+  &.modal-input-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content {
+  &.custom__content {
+    background-color: $white;
+    height: 100%
+  }
+}
+
+.camera-background {
+  background-color: $green;
+  height: 46.05px;
+  width: 46.05px;
+  border-radius: 23.025px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.image-upload>input {
+  display: none;
+}
+
+
+.profile {
+  &.image-upload {
+    position: relative;
+    top: -4rem;
+    left: 7.3rem;
+  }
+}

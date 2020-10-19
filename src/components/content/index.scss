@@ -1,0 +1,55 @@
+@import '../../index.scss';
+
+.right-content-container {
+  height: 80%;
+  width: 35%;
+  margin-top: 150px;
+  padding-bottom: 30px;
+  @include sm {
+    width: 90%;
+    padding-top: 30px;
+    // justify-content: center;
+  }
+}
+
+.right-content {
+  background-color: $white;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow-y: scroll;
+  padding-top: 20px;
+}
+
+.content {
+  height: 100vh;
+  background-color: $white;
+  border-radius: 20px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  // overflow-x: hidden;
+  @include sm {
+    width: 90%;
+    padding-top: 30px;
+    // justify-content: center;
+  }
+}
+
+.content {
+  &.big-content {
+    width: 97.5%;
+  }
+}
+
+.scrollable-content {
+  // height: 100%;
+  width: 100%;
+  // overflow-y: scroll;
+  padding-top: 20px;
+  @include sm {
+    padding-top: 0;
+  }
+}
+

@@ -8,7 +8,7 @@ import Templates from '../../assets/svg/Templates.svg';
 import Task from '../../assets/svg/Task.svg';
 import { convertFirstLetterToUppercase } from '../../utils/helpers';
 import NewDeal from '../../components/deal/NewDeal';
-
+import Image, { IMAGE_SIZES } from '../../components/image';
 export class Dashboard extends React.Component {
   state = {
     currentDisplay: '',
@@ -30,7 +30,10 @@ export class Dashboard extends React.Component {
       <React.Fragment>
         <div className="dashboard-container">
           <div className="big-card">
-            <div className="image-container"/>
+            <Image
+              size={IMAGE_SIZES.big}
+              {...this.props.user}
+            />
             <div className="user-details">
               <h1>Hi {convertFirstLetterToUppercase(this.props.user.firstName)},</h1>
               <div className="text">

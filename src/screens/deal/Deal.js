@@ -4,8 +4,10 @@ import Image from '../../components/image';
 import AddImage from '../../assets/svg/add-image.svg';
 import { connect } from 'react-redux';
 import { getDeal, addImage, updateDeal } from '../../actions/deals/actionCreators';
-import { convertDate, convertFirstLetterToUppercase } from '../../utils/helpers';
+import { convertDate, convertFirstLetterToUppercase, formatNumber } from '../../utils/helpers';
 import EditDealFields from '../../components/deal/EditDealFields';
+import Container from '../../components/container/Container';
+import Content from '../../components/content/Content';
 
 class Deal extends React.Component {
   state = {
@@ -117,9 +119,9 @@ class Deal extends React.Component {
     const { deal, selectedField, selectedSection, index, type, images, currentImageIndex } = this.state;
     let indexCounter = 0;
     return (
-      <div className="deal-overview-container">
+      <Container customStyle="custom__scrollable-container">
         {Object.keys(deal).length ?
-          <div className="deal-overview">
+          <Content customStyle="custom__content">
             <div className="deal-header">
               <div className="left-header">
                 <div className="left-header-text">
@@ -175,7 +177,12 @@ class Deal extends React.Component {
                     Member: 
                   </div>
                   <div className="right-side-overview">
-                    <Image/>
+                    {
+                      deal.members.map(member => <Image
+                        key={indexCounter++}
+                        {...member}
+                        />)
+                    }
                   </div>
                 </div>
                 <div className="overview-right">
@@ -190,7 +197,7 @@ class Deal extends React.Component {
                   deal.finance.map((finance, i) =>
                   <EditDealFields
                     key={indexCounter++}
-                    value={finance.value}
+                    value={finance.key === 'Loan Request' ? `$${formatNumber(finance.value)}` : finance.value}
                     index={i}
                     isKeyEditable={selectedField === finance.key && selectedSection === 'finance' && i === index && type === 'key'}
                     isValueEditable={selectedField === finance.value && selectedSection === 'finance' && i === index && type === 'value'}
@@ -233,9 +240,9 @@ class Deal extends React.Component {
                 </button>
               </div>
             </div>
-          </div>
+          </Content>
         : ''}
-      </div>
+      </Container>
     )
   }
 }

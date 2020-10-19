@@ -1,9 +1,29 @@
 @import '../../index.scss';
 
-.user-photo {
+.display-photo {
   height: 44px;
   width: 44px;
-  background-color: $darkGrey;
+  background-color: $lightBlue;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 22px;
   align-self: center;
+}
+
+.display-photo {
+  &.big-photo {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 5rem;
+  }
+}
+
+.display-photo {
+  &.medium-photo {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 5rem;
+  }
 }

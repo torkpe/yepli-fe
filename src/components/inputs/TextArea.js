@@ -1,12 +1,12 @@
 import React from 'react';
 import './input.scss';
 
-export default function ModalTextInput(props) {
+export default function TextArea(props) {
   return (
-    <div className="modal-input-container">
+    <div className="modal-input-container text-area custom__modal-input-container">
       <label>{props.title}</label>
-      <input
-        className="modal-input"
+      <textarea
+        className="text-area-input modal-input"
         value={props.value}
         name={props.name}
         autoFocus={props.autoFocus}

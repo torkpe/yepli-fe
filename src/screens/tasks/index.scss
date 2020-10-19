@@ -1,0 +1,160 @@
+@import '../../index.scss';
+
+.button-container {
+  display: flex;
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.colored-button {
+  &.custom__colored-button {
+    width: 11rem;
+  }
+}
+
+.close-task {
+  align-self: flex-end;
+  font-weight: bolder;
+  color: $red;
+  margin-top: 0;
+  width: 40px;
+  text-align: right;
+}
+
+.task-title {
+  margin-bottom: 10px;
+}
+
+.task-description {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.single-task {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.single-task-title {
+  display: flex;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $thinGrey;
+}
+
+.title-text {
+  color: $dark;
+  font-weight: bolder;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.collapsible-button {
+  margin: 0;
+  width: 100%;
+  font-size: 20px;
+  align-items: center;
+  display: flex;
+}
+
+.single-task-description {
+  padding-left: 60px;
+  height: 49px;
+  display: flex;
+  color: $averageGrey;
+  align-items: center;
+  border-bottom: 1px solid $thinGrey;
+  cursor: pointer;
+}
+
+.selected-task {
+  background-color: $thinGrey;
+}
+
+.hidden-task {
+  display: none;
+}
+
+.task-description-content {
+  padding: 30px;
+  color: $averageGrey;
+
+}
+
+.task-details {
+  margin-bottom: 15px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.task-details-value {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.user-image {
+  height: 35px;
+  width: 35px;
+  border-radius: 17.5px;
+}
+
+.comment {
+  width: 100%;
+  border: 0
+}
+
+.comment-section {
+  display: flex;
+  height: 80px;
+}
+
+.task-content {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.comment-box {
+  width: 100%;
+  bottom: 0;
+  height: 80px;
+  border-radius: 20px;
+  border: 1px solid $thinGrey;
+  padding-top: 10px;
+  // padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.right-content {
+  overflow: hidden;;
+}
+
+.comment-user-section {
+  height: 80px;
+  padding-top: 50px;
+}
+
+.comment-buttons {
+  display: flex;
+  width: 100%;
+}
+
+.comment-button {
+  width: 16px;
+  height: 40px;
+  margin-right: 20px;
+  margin-top: 0;
+}
+
+button {
+  margin-top: 0;
+}

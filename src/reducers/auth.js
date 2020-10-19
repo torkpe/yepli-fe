@@ -54,7 +54,7 @@ export function auth (state = initialState, action) {
       }
     }
     case authActions.SET_CURRENT_USER: {
-      localStorage.setItem('jwt', action.payload.token)
+      localStorage.setItem('jwt', action.payload.token);
       return {
         ...state,
         isAuthenticated: true,

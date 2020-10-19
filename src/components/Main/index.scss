@@ -47,7 +47,7 @@
 }
 
 .logout-button {
-  color: $subText;
+  color: $thinGrey;
   font-weight: normal;
   font-size: inherit;
   width: 10rem;
@@ -80,6 +80,7 @@
   flex-direction: row;
   padding-left: 5rem;
   align-items: center;
+  cursor: pointer;
   @include sm {
     display: none;
   }
@@ -91,7 +92,7 @@
   height: 5rem;
   align-items: center;
 
-  color: $subText;
+  color: $thinGrey;
   @include sm {
     display: none;
   }
@@ -107,7 +108,7 @@
   height: 5rem;
   align-items: center;
   background-color: $veryLightGrey;
-  color: $subText;
+  color: $thinGrey;
 }
 
 .dashboard-sidebar {
@@ -185,7 +186,7 @@ h3 {
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
-  color: $subText;
+  color: $thinGrey;
   cursor: pointer;
 }
 
@@ -238,6 +239,7 @@ h3 {
   justify-content: center;
   padding-left: 25rem;
   overflow-y: hidden;
+  overflow-x: hidden;
   @include sm {
     flex-direction: column;
     padding-left: 0;

@@ -1,12 +1,11 @@
 import React from 'react';
 import './index.scss';
 import DealCard from './DealCard';
-import Carret from '../../assets/svg/down-arrow.svg';
 import Dummy from '../../assets/svg/dummy-image.svg';
 import { connect } from 'react-redux';
 import { getDeals } from '../../actions/deals/actionCreators';
 import { convertFirstLetterToUppercase, formatNumber } from '../../utils/helpers';
-
+import ColoredButton, { BUTTON_TYPES } from '../../components/coloredButton/ColoredButton';
 class Deals extends React.Component {
   constructor(props) {
     super(props);
@@ -29,20 +28,18 @@ class Deals extends React.Component {
           <h1 className="title">Deals</h1>
             See Deals
           <div className="deal-action-buttons">
-            <button className="deal-button">
-              Create Deal +
-            </button>
-            <button className="deal-button join-deal">
-              Join Deal
-              <img src={Carret} alt="carret" className="carret"/>
-            </button>
+            <ColoredButton
+              symbolType={BUTTON_TYPES.plus}
+              onClick={() => console.log('hjfdhj')}
+              text={"Create Deal"}
+            />
           </div>
         </div>
         <div className="deals-list">
           {
             deals ? deals.map(deal =><DealCard
               key={indexCounter++}
-              image={deal.image ? deal.image : Dummy}
+              image={deal.images && deal.images[0] ? deal.images[0] : Dummy}
               amount={`$${formatNumber(deal.value)}`}
               createdBy={convertFirstLetterToUppercase(`${deal.createdBy.firstName} ${deal.createdBy.lastName}`)}
               title={deal.name}

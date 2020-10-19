@@ -69,6 +69,7 @@ export const verifyEmail = (payload, history) => async (dispatch) => {
       type: VERIFY_EMAIL_SUCCESSFUL,
       payload: response.data.message
     });
+    setAuthToken(response.data.token)
     history.push('/')
     return dispatch({
       type: SET_CURRENT_USER,

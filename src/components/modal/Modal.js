@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.scss';
+import Header from '../header/Header';
 
 export default class Modal extends React.Component {
 
@@ -12,25 +13,27 @@ export default class Modal extends React.Component {
           <h3 className='modal-header'>
             {this.props.title}
           </h3>
-          <div className="modal-body">
-            {
+          {
               this.props.displayTabs ?
-              <div className="tab">
-                <button
-                  onClick={() => toggleDisplay('tab1')}
-                  className={`tab-button tab-button-1 ${currentDisplay === 'tab1' ? 'active-button' : ''} `}>
-                  {this.props.tab1}
-                </button>
-                {
-                  this.props.tab2 ?
+              <Header>
+                <div className="tab">
                   <button
-                    onClick={() => toggleDisplay('tab2')}
-                    className={`tab-button ${currentDisplay === 'tab2' ? 'active-button' : ''} `}>
-                    {this.props.tab2}
-                  </button> : ''
-                }
-              </div> : ''
+                    onClick={() => toggleDisplay ? toggleDisplay('tab1') : ''}
+                    className={`tab-button tab-button-1 ${currentDisplay === 'tab1' ? 'active-button' : ''} `}>
+                    {this.props.tab1}
+                  </button>
+                  {
+                    this.props.tab2 ?
+                    <button
+                      onClick={() => toggleDisplay ? toggleDisplay('tab2') : ''}
+                      className={`tab-button ${currentDisplay === 'tab2' ? 'active-button' : ''} `}>
+                      {this.props.tab2}
+                    </button> : ''
+                  }
+                </div>
+              </Header> : ''
             }
+          <div className="modal-body">
             {this.props.children}
           </div>
           <div className="modal-footer">

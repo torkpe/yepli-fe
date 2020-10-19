@@ -5,13 +5,11 @@ import { Link, withRouter } from 'react-router-dom';
 import './index.scss'
 import home from '../../assets/svg/home.png'
 import menu from '../../assets/svg/menu.svg'
-import TaskIcon from '../../assets/svg/my-task.svg';
-import Contact from '../../assets/svg/contact.svg';
-import MyDeals from '../../assets/svg/My-deals.svg';
-import Settings from '../../assets/svg/Settings.svg';
+
 import DashboardItem from './DashboardItem';
 import { signout } from '../../actions/auth/actionCreators';
-import { convertFirstLetterToUppercase } from '../../utils/helpers';
+import { convertFirstLetterToUppercase, routeLinks} from '../../utils/helpers';
+import Image from '../image';
 
 export class Main extends React.Component {
   state = {
@@ -30,10 +28,10 @@ export class Main extends React.Component {
 
   render () {
     const { openSidenav } = this.state;
+    let indexCounder = 0
     return (
       <div className='container'>
         <div className="nav-bar">
-
         </div>
         <div className={openSidenav ? "sidenav" : "hidden-sidenav"}>
           <div className="closebtn" onClick={this.toggleSideNav}>&times;</div>
@@ -43,27 +41,14 @@ export class Main extends React.Component {
           </Link>
           <div className="dashboard-sidebar">
             <div className="items-sidebar">
-              <DashboardItem
-                title="My Task"
-                toggleSideNav={this.toggleSideNav}
-                icon={TaskIcon}
-              />
-              <DashboardItem
-                title="Contacts"
-                toggleSideNav={this.toggleSideNav}
-                icon={Contact}
-              />
-              <DashboardItem
-                title="My Deals"
-                toggleSideNav={this.toggleSideNav}
-                icon={MyDeals}
-                to={'Deals'}
-              />
-              <DashboardItem
-                title="Settings"
-                toggleSideNav={this.toggleSideNav}
-                icon={Settings}
-              />
+              {
+                routeLinks.map(routeLink => <DashboardItem
+                  key={indexCounder++}
+                  title={routeLink.title}
+                  toggleSideNav={this.toggleSideNav}
+                  icon={routeLink.icon}
+                />)
+              }
             </div>
           </div>
           <div className="logout-section-sidebar">
@@ -82,11 +67,12 @@ export class Main extends React.Component {
               yepli.
             </h1>
           </div>
-          <div className="user-name">
-            <div className="user-image">
-            </div>
+          <Link className="user-name" to='/profile'>
+            <Image
+              {...this.props.user}
+            />
             <h3>{convertFirstLetterToUppercase(this.props.user.firstName)} {convertFirstLetterToUppercase(this.props.user.lastName)}</h3>
-          </div>
+          </Link>
           <Link to={'/'} className="home">
             <img src={home} className="home-icon" alt='logo'/>
             Home
@@ -96,23 +82,14 @@ export class Main extends React.Component {
               DASHBOARD
             </h3>
             <div className="items">
-              <DashboardItem
-                title="My Task"
-                icon={TaskIcon}
-              />
-              <DashboardItem
-                title="Contacts"
-                icon={Contact}
-              />
-              <DashboardItem
-                title="My Deals"
-                icon={MyDeals}
-                to={'deals'}
-              />
-              <DashboardItem
-                title="Settings"
-                icon={Settings}
-              />
+              {
+                routeLinks.map(routeLink => <DashboardItem
+                  key={indexCounder++}
+                  title={routeLink.title}
+                  icon={routeLink.icon}
+                  to={routeLink.to}
+                />)
+              }
             </div>
           </div>
           <div className="logout-section">

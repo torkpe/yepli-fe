@@ -13,6 +13,10 @@ import Dashboard from './screens/dashboard/Dashboard';
 import VerifyEmail from './screens/auth/VerifyEmail';
 import Deals from './screens/deal/Deals';
 import Deal from './screens/deal/Deal';
+import Tasks from './screens/tasks/Tasks';
+import Settings from './screens/settings/Settings';
+import Profile from './screens/profile/Profile';
+import Contacts from './screens/contacts/Contacts';
 
 class App extends React.Component {
   state = {
@@ -40,6 +44,10 @@ class App extends React.Component {
                   <Route exact path='/' component={Dashboard}/>
                   <Route exact path='/deals' component={Deals}/>
                   <Route path='/deals/:dealId' component={Deal}/>
+                  <Route path='/tasks' component={Tasks}/>
+                  <Route path='/settings' component={Settings}/>
+                  <Route path='/profile' component={Profile}/>
+                  <Route path='/contacts' component={Contacts}/>
                 </React.Fragment>
               </Main>
         }

@@ -1,0 +1,30 @@
+@import '../../index.scss';
+
+.colored-button {
+  height: 38px;
+  width: 11rem;
+  background-color: #1087EF;
+  margin-right: 20px;
+  color: $white;
+  border-radius: 10px;
+}
+
+.carret {
+  margin-left: 10px;
+}
+
+.red-button {
+  background-color: $red;
+}
+
+.green-button {
+  background-color: $green;
+}
+
+.grey-button {
+  background-color: $averageGrey;
+}
+
+.grey-button {
+  background-color: $thinGrey;
+}

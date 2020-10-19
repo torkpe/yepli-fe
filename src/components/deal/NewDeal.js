@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../modal/Modal';
 
-import ModalTextInput from '../inputs/ModalTextInput';
+import CustomTextInput from '../inputs/CustomTextInput';
 import './index.scss';
 import CustomCalendar from '../calendar/Calendar';
 import moment from 'moment';
@@ -76,18 +76,18 @@ export class NewDeal extends React.Component {
         showModal={this.props.displayModal}>
           <div className="new-deal">
             <div className="new-deal-form">
-              <ModalTextInput
+              <CustomTextInput
                 title={'Name of Deal*'}
                 onChange={this.onChange}
                 name={'name'}
               />
-              <ModalTextInput
+              <CustomTextInput
                 title={'Deal value($)*'}
                 onChange={this.onChange}
                 value={formatNumber(this.state.value.replace(/,/g, ''))}
                 name={'value'}
               />
-              <ModalTextInput
+              <CustomTextInput
                 title={'Type of Deal'}
                 onChange={this.onChange}
                 name={'type'}
